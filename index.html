@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <html lang="pt-BR"></html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Web</title>
+    <!-- Bootstrap CSS (folha de estilos) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+            body {
+                background-image: url("./picture2.jpg");
+                background-repeat: repeat-x;
+                background-size: cover;
+            }
+    </style>
+    <!-- link rel="stylesheet" href="./Untitled-2.css" -->
+</head>
+<body style="body {background-image: url('./picture.jpg');  background-repeat: repeat-x;    background-size: cover;}">
+    <!-- Estilização da barra de topo -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Meu Incrível Site</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://www.linkedin.com/in/jo%C3%A3o-matheus-andrade-916315279/">Sobre mim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.linkedin.com/in/jaaajunior/">Sobre o professor</a>
+                </li>
+                <li class="nav-item">
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="w3-container">
+        <div class="w3-twothird">
+    
+      <div class="w3-container w3-card w3-white w3-margin-bottom">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Registro de Atividades</h2>
+        <div class="w3-container">
+          <h5 class="w3-opacity"><b>Site feito com HTML, JS e CSS (Bootstrap)</b></h5>
+            <form>
+                <input type="text" id="name" placeholder="Nome da tarefa">
+                <input type="text" id="desc" placeholder="Descrição">
+                <button type="button" onclick="addEntry()">Adicionar Registro</button>
+            </form>
+            <br>
+        </div>
+        </div>
+        <div class="w3-container">
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <table id="entryTable" style="width: 100%">
+                        <thead>
+                            <tr>
+                                
+                                <th >Tarefas</th>
+                                
+                                <th>Descrição</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Existing entries will be dynamically added here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+        </div>
+        </div>
+        <script>
+            function addEntry() {
+            var name = document.getElementById("name").value;
+            var desc = document.getElementById("desc").value;
+
+            var table = document.getElementById("entryTable");
+            var row = table.insertRow(-1);
+            var nameCell = row.insertCell(0);
+            var descCell = row.insertCell(1);
+
+            nameCell.innerHTML = name;
+            descCell.innerHTML = desc;
+            var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Deletar";
+
+            deleteButton.addEventListener("click", function() {
+                var row = this.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            });
+
+            var deleteCell = row.insertCell(2);
+            deleteCell.appendChild(deleteButton);
+
+            var markButton = document.createElement("button");
+            markButton.innerHTML = "Concluir";
+
+            markButton.addEventListener("click", function() {
+                var row = this.parentNode.parentNode;
+                row.style.textDecoration = "line-through";
+            });
+
+            var markCell = row.insertCell(3);
+            deleteCell.appendChild(markButton);
+
+            document.getElementById("name").value = "";
+            document.getElementById("desc").value = "";
+            }
+        </script>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
